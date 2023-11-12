@@ -24,7 +24,7 @@ df_pos = df[df["label"] == 1]
 df_pos = df_pos.sample(2444) # let the rows of pos and neg datasets be the same
 df_pos_test = df_pos.iloc[:100]
 # print(df_pos_test)
-df_pos = df_pos.drop(columns="label") # keep "review" column
+df_pos = df_pos.drop("label", axis=1) # keep "review" column
 df_pos_train = df_pos.iloc[100:]
 # print(df_pos_train)
 df_pos_train.to_csv("C:\\Users\\HP\\Desktop\\project\\NLP-Sentiment-Analysis\\pos_train.csv",
@@ -36,7 +36,7 @@ df_neg = df[df["label"] == 0]
 df_neg = df_neg.sample(frac=1.0) # let the datas be sorted randomly
 df_neg_test = df_neg.iloc[:100]
 # print(df_neg_test)
-df_neg = df_neg.drop(columns="label") # keep "review" column
+df_neg = df_neg.drop("label", axis=1) # keep "review" column
 df_neg_train = df_neg.iloc[100:]
 # print(df_neg_train)
 df_neg_train.to_csv("C:\\Users\\HP\\Desktop\\project\\NLP-Sentiment-Analysis\\neg_train.csv",
