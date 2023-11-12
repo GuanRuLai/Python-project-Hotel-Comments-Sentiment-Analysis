@@ -22,10 +22,10 @@ print("The numbers of negative comments: ", len(df[df["label"] == 0]), "rows")
 # gain positive dataset and split training and testing set
 df_pos = df[df["label"] == 1]
 df_pos = df_pos.sample(2444) # let the rows of pos and neg datasets be the same
-df_pos_test = df_pos.iloc[:100]
+df_pos_test = df_pos.iloc[:100, :]
 # print(df_pos_test)
 df_pos = df_pos.drop("label", axis=1) # keep "review" column
-df_pos_train = df_pos.iloc[100:]
+df_pos_train = df_pos.iloc[100:, :]
 # print(df_pos_train)
 df_pos_train.to_csv("C:\\Users\\HP\\Desktop\\project\\NLP-Sentiment-Analysis\\pos_train.csv",
                     header=False,
@@ -34,10 +34,10 @@ df_pos_train.to_csv("C:\\Users\\HP\\Desktop\\project\\NLP-Sentiment-Analysis\\po
 # gain negative dataset and split training and testing set
 df_neg = df[df["label"] == 0]
 df_neg = df_neg.sample(frac=1.0) # let the datas be sorted randomly
-df_neg_test = df_neg.iloc[:100]
+df_neg_test = df_neg.iloc[:100, :]
 # print(df_neg_test)
 df_neg = df_neg.drop("label", axis=1) # keep "review" column
-df_neg_train = df_neg.iloc[100:]
+df_neg_train = df_neg.iloc[100:, :]
 # print(df_neg_train)
 df_neg_train.to_csv("C:\\Users\\HP\\Desktop\\project\\NLP-Sentiment-Analysis\\neg_train.csv",
                     header=False,
